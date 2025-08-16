@@ -1,9 +1,11 @@
-package com.hotel.service;
+package com.banco.service;
 
-import com.hotel.model.Conta;
+import com.banco.model.Conta;
+import com.banco.model.ContaCorrente;
+import com.banco.model.ContaPoupanca;
+import com.banco.view.UserInterface;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Banco {
 
@@ -21,10 +23,12 @@ public class Banco {
     // depositar ->
     // sacar ->
 
-    public void managerPage(int keyPage){
+    public void managerPage(int keyPage, UserInterface userInterface, ContaPoupanca contaPoupanca, ContaCorrente contaCorrente){
         switch (keyPage){
 
-            case 1 ->{}
+            case 1 ->{
+                userInterface.deposit();
+            }
 
             case 2 ->{}
 
