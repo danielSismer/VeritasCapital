@@ -19,16 +19,16 @@ public class HandleError {
         }
     }
 
-    public static double validDouble(Scanner input, String mensagem){
+    public static double validDouble(Scanner input, String mensagem, String validOption){
         while (true) {
-            System.out.print(mensagem);
+            System.out.print(validOption);
             String valor = input.nextLine();
 
             try {
                 return Double.parseDouble(valor);
             } catch (NumberFormatException e) {
                 System.out.println("Entrada inválida! Digite um número decimal (ex: 10.5).");
-
+                System.out.println(mensagem);
             }
         }
     }

@@ -21,7 +21,7 @@ public class Main {
 
         while (keyMenu!=0){
             keyMenu = userInterface.mainPage();
-            banco.managerPage(keyMenu, userInterface, contaPoupanca, contaCorrente);
+            banco.managerPage(keyMenu, contaPoupanca, contaCorrente);
         }
     }
 }
