@@ -13,7 +13,7 @@ public class Banco {
     UserInterface uiView;
 
     public Banco(){
-        contas = new ArrayList<Conta>();
+        contas = new ArrayList<>();
         uiView = new UserInterface();
     }
 
@@ -90,7 +90,6 @@ public class Banco {
     private Conta formerContaCorrente(Conta conta){
         String titular = conta.getTitular();
         String numeroConta = conta.getNumero();
-        double saldo = conta.getSaldo();
         double movimentacaoDiaria = uiView.readMovimentacao();
 
         return new ContaCorrente(titular, numeroConta, 0, movimentacaoDiaria);
@@ -99,10 +98,9 @@ public class Banco {
     private Conta formerContaPoupanca(Conta conta){
         String titular = conta.getTitular();
         String numeroConta = conta.getNumero();
-        double saldo = conta.getSaldo();
         double taxaRendimento = uiView.readRendimento();
 
-        return new ContaCorrente(titular, numeroConta, 0, taxaRendimento);
+        return new ContaPoupanca(titular, numeroConta, 0, taxaRendimento);
     }
 
 }
