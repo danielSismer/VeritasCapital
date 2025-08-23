@@ -12,8 +12,8 @@ public class Banco {
     ArrayList<Conta> contas;
     UserInterface uiView;
 
-    public Banco() {
-        contas = new ArrayList<Conta>();
+    public Banco(){
+        contas = new ArrayList<>();
         uiView = new UserInterface();
     }
 
@@ -108,7 +108,7 @@ public class Banco {
         double saldo = conta.getSaldo();
         double taxaRendimento = uiView.readRendimento();
 
-        return new ContaCorrente(titular, numeroConta, 0, taxaRendimento);
+        return new ContaPoupanca(titular, numeroConta, 0, taxaRendimento);
     }
 
     private boolean searchNumberAccount(String numberAccount) {
