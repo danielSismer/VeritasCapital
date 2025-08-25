@@ -36,17 +36,30 @@ public class Banco {
 
             //depósito
             case 2 -> {
-                boolean found = searchNumberAccount(uiView.readConta("Depósito"));
+                Conta conta = searchNumberAccount(uiView.readConta("Depósito"));
 
-                if (found) {
-                    System.out.print("objeto encontrado");
+                if(conta != null){
+                    conta.setSaldo(uiView.readSaldo("Depósito", "depositar"));
                 } else {
-                    System.out.print("objeto não encontrado");
+                    uiView.notFound();
                 }
 
             }
-            //sacada
+            //saque
             case 3 -> {
+                Conta conta = searchNumberAccount(uiView.readConta("Saque"));
+
+                if(conta != null){
+                    double balanceAccount = withdrawal(conta);
+
+                    if (balanceAccount == -1){
+                        uiView.balanceAbove();
+                    }
+
+                } else {
+                    uiView.notFound();
+                }
+
             }
 
             //transferência
@@ -111,14 +124,25 @@ public class Banco {
         return new ContaPoupanca(titular, numeroConta, 0, taxaRendimento);
     }
 
-    private boolean searchNumberAccount(String numberAccount) {
-        boolean found = false;
+    private Conta searchNumberAccount(String numberAccount) {
         for (Conta contaUnit : contas) {
             if (contaUnit.getNumero().equalsIgnoreCase(numberAccount)) {
-                found = true;
+                return contaUnit;
             }
         }
-        return found;
+        return null;
+    }
+
+    private double withdrawal(Conta conta){
+        double balanceInput = uiView.readSaldo("Saque", "sacar");
+        double balanceAccount = conta.getSaldo() - balanceInput;
+
+        if (balanceAccount >= 0){
+            conta.setSaldo(balanceAccount);
+            return conta.getSaldo();
+        }
+        return -1;
+
     }
 
 }
