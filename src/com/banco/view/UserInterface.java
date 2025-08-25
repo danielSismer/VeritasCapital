@@ -1,5 +1,7 @@
 package com.banco.view;
 
+import com.banco.model.Conta;
+
 import java.util.Scanner;
 
 public class UserInterface {
@@ -113,6 +115,10 @@ public class UserInterface {
         System.out.println("| Por favor, insira um número correspondente com a legenda                |");
         System.out.println("|                                                                         |");
         System.out.println("===========================================================================");
+    }
+
+    public void listAccount(Conta conta, int cont){
+        System.out.println(cont + "- " + conta);
     }
 
 
