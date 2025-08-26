@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Teste Tailwind</title>
+</head>
+
+
+<body class="bg-gray-100">
+
+
+    <header>
+        <nav class="flex items-center justify-between p-6 bg-white shadow">
+
+            <div>
+                <img src="./images/Veritas Capital (1).png" alt="LOGO">
+            </div>
+
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#" class="hover:underline">Home</a></li>
+                <li><a href="#" class="hover:underline">About</a></li>
+                <li><a href="#" class="hover:underline">Services</a></li>
+                <li><a href="#" class="hover:underline">Contact</a></li>
+            </ul>
+
+            <div class="flex md:hidden">
+                <img src="./images/logo-mobile.svg" alt="">
+                <p class="p-2 text-blue text-3xl">☰</p>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="relative bg-gradient-to-r from-[#102346] via-[#2E5C91] to-[#982041] text-white">
+
+            <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Financial city"
+                    class="w-full h-full object-cover opacity-30">
+            </div>
+
+            <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-32 flex flex-col lg:flex-row items-center">
+
+                <div class="flex-1 text-center lg:text-left">
+                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+                        Confiança. Inovação. <br>
+                        <span class="text-[#E2EAED]">VeritasCapital</span>
+                    </h1>
+                    <p class="mt-6 text-lg md:text-xl text-gray-200 max-w-2xl">
+                        Transformamos sua visão em realidade financeira, unindo
+                        tecnologia de ponta e segurança no mercado de capitais.
+                    </p>
+                    <div class="mt-8 flex justify-center lg:justify-start gap-4">
+                        <a href="#services"
+                            class="px-6 py-3 rounded-2xl bg-[#982041] hover:bg-[#7c1b36] transition font-semibold shadow-lg">
+                            Nossos Serviços
+                        </a>
+                        <a href="#about"
+                            class="px-6 py-3 rounded-2xl border border-white hover:bg-white hover:text-[#102346] transition font-semibold">
+                            Saiba Mais
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex-1 mt-12 lg:mt-0 lg:ml-12">
+                    <img src="./images/pexels-pixabay-164527.jpg" alt="Financial growth"
+                        class="rounded-2xl shadow-2xl border border-[#E2EAED]">
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+
+</html>
