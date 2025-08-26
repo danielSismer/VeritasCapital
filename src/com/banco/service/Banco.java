@@ -28,6 +28,10 @@ public class Banco {
     public void managerPage(int keyPage, ContaPoupanca contaPoupanca, ContaCorrente contaCorrente) {
         switch (keyPage) {
 
+            case 0 -> {
+                uiView.shutdown();
+            }
+
             case 1 -> {
                 Conta conta = formerConta();
                 int keyType = uiView.typePage();
@@ -64,6 +68,20 @@ public class Banco {
 
             //transferência
             case 4 -> {
+                if(contas.size() >= 2){
+                    Conta senderAccount = searchNumberAccount(uiView.readConta("Conta remetente"));
+                    Conta receiverAccount = searchNumberAccount(uiView.readConta("Conta Destinatária"));
+
+                    if(senderAccount != null && receiverAccount != null){
+                        double balanceSender = transfer(senderAccount, receiverAccount);
+
+                        if(balanceSender == -1){
+                            uiView.balanceAbove();
+                        }
+                    } else {
+                        uiView.notFound();
+                    }
+                }
             }
 
             //listagem
@@ -145,4 +163,21 @@ public class Banco {
 
     }
 
+    private double transfer(Conta senderAccount, Conta receiverAccount){
+        double balanceInputSender = uiView.readSaldo("Transferência", "transferir para a conta " + receiverAccount.getNumero());
+
+        double balanceSender = senderAccount.getSaldo() - balanceInputSender;
+        double balanceReceiver = receiverAccount.getSaldo() + balanceInputSender;
+
+
+        if(balanceSender >= 0){
+            senderAccount.setSaldo(balanceSender);
+            receiverAccount.setSaldo(balanceReceiver);
+            return balanceSender;
+        }
+        else {
+            return -1;
+        }
+
+    }
 }

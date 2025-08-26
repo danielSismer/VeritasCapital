@@ -107,6 +107,16 @@ public class UserInterface {
         return HandleError.validDouble(input, "Tente novamente", "Digite um número correspondente: ");
     }
 
+    public void shutdown(){
+        System.out.println("===========================================================================");
+        System.out.println("|                             Encerramento                                 |");
+        System.out.println("===========================================================================");
+        System.out.println("|                                                                         |");
+        System.out.println("| Programa encerrando....                                                 |");
+        System.out.println("|                                                                         |");
+        System.out.println("===========================================================================");
+    }
+
     public void errorDefault(){
         System.err.println("===========================================================================");
         System.err.println("|                                 Erro                                    |");
