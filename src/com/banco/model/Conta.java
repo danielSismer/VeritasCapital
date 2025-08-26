@@ -11,7 +11,7 @@ public class Conta {
     protected double saldo;
 
     public Conta() {
-        this.numero = null;
+        this.titular = null;
         this.numero = null;
         this.saldo = 0;
     }

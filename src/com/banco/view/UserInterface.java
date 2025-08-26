@@ -1,5 +1,7 @@
 package com.banco.view;
 
+import com.banco.model.Conta;
+
 import java.util.Scanner;
 
 public class UserInterface {
@@ -54,12 +56,12 @@ public class UserInterface {
         return input.nextLine();
     }
 
-    public double readSaldo(String operationType){
+    public double readSaldo(String operationType, String commandType){
         System.out.println("============================================================================");
-        System.out.println("|                                  Depósito                                |");
+        System.out.println("|                              "+ operationType +"                                  |");
         System.out.println("============================================================================");
         System.out.println("|                                                                          |");
-        System.out.println("| Por favor, insira o número de saldo que queira depositar:                |");
+        System.out.println("| Por favor, insira o número de saldo que queira "+ commandType +":                |");
         System.out.println("|                                                                          |");
         System.out.println("============================================================================");
 
@@ -105,14 +107,48 @@ public class UserInterface {
         return HandleError.validDouble(input, "Tente novamente", "Digite um número correspondente: ");
     }
 
+    public void shutdown(){
+        System.out.println("===========================================================================");
+        System.out.println("|                             Encerramento                                 |");
+        System.out.println("===========================================================================");
+        System.out.println("|                                                                         |");
+        System.out.println("| Programa encerrando....                                                 |");
+        System.out.println("|                                                                         |");
+        System.out.println("===========================================================================");
+    }
+
     public void errorDefault(){
-        System.out.println("===========================================================================");
-        System.out.println("|                                 Erro                                    |");
-        System.out.println("===========================================================================");
-        System.out.println("|                                                                         |");
-        System.out.println("| Por favor, insira um número correspondente com a legenda                |");
-        System.out.println("|                                                                         |");
-        System.out.println("===========================================================================");
+        System.err.println("===========================================================================");
+        System.err.println("|                                 Erro                                    |");
+        System.err.println("===========================================================================");
+        System.err.println("|                                                                         |");
+        System.err.println("| Por favor, insira um número correspondente com a legenda                |");
+        System.err.println("|                                                                         |");
+        System.err.println("===========================================================================");
+    }
+
+    public void notFound(){
+        System.err.println("===========================================================================");
+        System.err.println("|                                 Erro                                    |");
+        System.err.println("===========================================================================");
+        System.err.println("|                                                                         |");
+        System.err.println("| Por favor, insira uma conta que exista no sistema                       |");
+        System.err.println("|                                                                         |");
+        System.err.println("===========================================================================");
+    }
+
+    public void balanceAbove(){
+        System.err.println("===========================================================================");
+        System.err.println("|                                 Erro                                    |");
+        System.err.println("===========================================================================");
+        System.err.println("|                                                                         |");
+        System.err.println("|  O valor retirado é maior do que já tem de saldo.                       |");
+        System.err.println("|                                                                         |");
+        System.err.println("===========================================================================");
+    }
+
+    public void listAccount(Conta conta, int cont){
+        System.out.println(cont + "- " + conta);
     }
 
 

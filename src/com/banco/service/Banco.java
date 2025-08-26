@@ -13,7 +13,7 @@ public class Banco {
     UserInterface uiView;
 
     public Banco(){
-        contas = new ArrayList<Conta>();
+        contas = new ArrayList<>();
         uiView = new UserInterface();
     }
 
@@ -25,37 +25,74 @@ public class Banco {
     // depositar ->
     // sacar ->
 
-    public void managerPage(int keyPage, ContaPoupanca contaPoupanca, ContaCorrente contaCorrente){
-        switch (keyPage){
+    public void managerPage(int keyPage, ContaPoupanca contaPoupanca, ContaCorrente contaCorrente) {
+        switch (keyPage) {
 
-            case 1 ->{
+            case 0 -> {
+                uiView.shutdown();
+            }
+
+            case 1 -> {
                 Conta conta = formerConta();
                 int keyType = uiView.typePage();
                 managerType(keyType, conta);
             }
 
             //depósito
-            case 2 ->{
+            case 2 -> {
+                Conta conta = searchNumberAccount(uiView.readConta("Depósito"));
 
-
+                if(conta != null){
+                    conta.setSaldo(uiView.readSaldo("Depósito", "depositar"));
+                } else {
+                    uiView.notFound();
+                }
 
             }
-            //sacada
-            case 3 ->{}
+            //saque
+            case 3 -> {
+                Conta conta = searchNumberAccount(uiView.readConta("Saque"));
+
+                if(conta != null){
+                    double balanceAccount = withdrawal(conta);
+
+                    if (balanceAccount == -1){
+                        uiView.balanceAbove();
+                    }
+
+                } else {
+                    uiView.notFound();
+                }
+
+            }
 
             //transferência
-            case 4 ->{}
+            case 4 -> {
+                if(contas.size() >= 2){
+                    Conta senderAccount = searchNumberAccount(uiView.readConta("Conta remetente"));
+                    Conta receiverAccount = searchNumberAccount(uiView.readConta("Conta Destinatária"));
+
+                    if(senderAccount != null && receiverAccount != null){
+                        double balanceSender = transfer(senderAccount, receiverAccount);
+
+                        if(balanceSender == -1){
+                            uiView.balanceAbove();
+                        }
+                    } else {
+                        uiView.notFound();
+                    }
+                }
+            }
 
             //listagem
-            case 5 ->{
-                for (Conta contaUnit: contas){
+            case 5 -> {
+                for (Conta contaUnit : contas) {
                     System.out.println(contaUnit);
                 }
             }
 
 
-
-            default ->{
+            default -> {
                 uiView.errorDefault();
             }
         }
@@ -63,31 +100,31 @@ public class Banco {
 
     //Toda conta criada tem valor 0 de saldo
 
-    private Conta formerConta(){
+    private Conta formerConta() {
         String titular = uiView.readTitular("Registrar");
         String numeroConta = uiView.readConta("Registrar");
 
         return new Conta(titular, numeroConta, 0);
     }
 
-    private void managerType(int keyType, Conta conta){
-        switch (keyType){
+    private void managerType(int keyType, Conta conta) {
+        switch (keyType) {
 
-            case 1->{
+            case 1 -> {
                 Conta objectChoose = formerContaCorrente(conta);
                 contas.add(objectChoose);
             }
-            case 2->{
+            case 2 -> {
                 Conta objectChoose = formerContaPoupanca(conta);
                 contas.add(objectChoose);
             }
-            default ->{
+            default -> {
                 uiView.errorDefault();
             }
         }
     }
 
-    private Conta formerContaCorrente(Conta conta){
+    private Conta formerContaCorrente(Conta conta) {
         String titular = conta.getTitular();
         String numeroConta = conta.getNumero();
         double saldo = conta.getSaldo();
@@ -96,13 +133,51 @@ public class Banco {
         return new ContaCorrente(titular, numeroConta, 0, movimentacaoDiaria);
     }
 
-    private Conta formerContaPoupanca(Conta conta){
+    private Conta formerContaPoupanca(Conta conta) {
         String titular = conta.getTitular();
         String numeroConta = conta.getNumero();
         double saldo = conta.getSaldo();
         double taxaRendimento = uiView.readRendimento();
 
-        return new ContaCorrente(titular, numeroConta, 0, taxaRendimento);
+        return new ContaPoupanca(titular, numeroConta, 0, taxaRendimento);
     }
 
+    private Conta searchNumberAccount(String numberAccount) {
+        for (Conta contaUnit : contas) {
+            if (contaUnit.getNumero().equalsIgnoreCase(numberAccount)) {
+                return contaUnit;
+            }
+        }
+        return null;
+    }
+
+    private double withdrawal(Conta conta){
+        double balanceInput = uiView.readSaldo("Saque", "sacar");
+        double balanceAccount = conta.getSaldo() - balanceInput;
+
+        if (balanceAccount >= 0){
+            conta.setSaldo(balanceAccount);
+            return conta.getSaldo();
+        }
+        return -1;
+
+    }
+
+    private double transfer(Conta senderAccount, Conta receiverAccount){
+        double balanceInputSender = uiView.readSaldo("Transferência", "transferir para a conta " + receiverAccount.getNumero());
+
+        double balanceSender = senderAccount.getSaldo() - balanceInputSender;
+        double balanceReceiver = receiverAccount.getSaldo() + balanceInputSender;
+
+
+        if(balanceSender >= 0){
+            senderAccount.setSaldo(balanceSender);
+            receiverAccount.setSaldo(balanceReceiver);
+            return balanceSender;
+        }
+        else {
+            return -1;
+        }
+
+    }
 }
