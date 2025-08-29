@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Veritas Capital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+
+    <header>
+        <nav class="flex items-center justify-between p-6 bg-white shadow">
+
+            <div>
+                <img src="./images/Veritas Capital (1).png" alt="LOGO">
+            </div>
+
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#" class="hover:underline">Home</a></li>
+                <li><a href="#" class="hover:underline">About</a></li>
+                <li><a href="#" class="hover:underline">Services</a></li>
+                <li><a href="#" class="hover:underline">Contact</a></li>
+            </ul>
+
+            <ul class="hidden md:flex gap-[1rem]">
+                <li><a href="./login.html" class="hover:underline">Login</a></li>
+                <li><a href="./signUp.html" class="hover:underline">Sign up</a></li>
+            </ul>
+
+            <div class="flex md:hidden ">
+                <img src="./images/logo-mobile.svg" alt="">
+                <p class="p-2 text-blue text-3xl">☰</p>
+            </div>
+
+        </nav>
+    </header>
+
+    <main >
+
+        <div class="">
+
+            <form action="" autocomplete="off" method="post" class="bg-gradient-to-r from-[#102346] via-[#2E5C91] to-[#982041] flex flex-col my-[2rem] mx-[1rem] bg-black py-[2rem] px-[1rem] gap-[1rem] text-white">
+                
+                <div>
+                    <label for="conta">Digite sua conta: </label>
+                    <input type="text" name="conta" id="conta" required class="block text-black rounded-[0.25rem]">
+                </div>
+
+                <div>
+                    <label for="password">Digite sua senha: </label>
+                    <input type="password" name="password" id="password" required class="block text-black rounded-[0.25rem]">
+                </div>
+
+                <div>
+                    <input type="submit" value="Sign Up" class="bg-[#982041] rounded-2xl px-6 py-1 hover:[#FFF] focus-visible:[#FFF]">
+                </div>
+
+            </form>        
+
+        </div>
+
+    </main>
+
+
+
+</body>
+</html>
