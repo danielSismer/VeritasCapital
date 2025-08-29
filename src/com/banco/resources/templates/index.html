@@ -17,10 +17,10 @@
         <nav class="flex items-center justify-between p-6 bg-white shadow">
 
             <div>
-                <img src="./images/Veritas Capital (1).png" alt="LOGO">
+                <img src="./images/logo.svg" alt="LOGO">
             </div>
 
-            <ul class="hidden md:flex space-x-6">
+            <ul class="hidden md:flex space-x-6 text-lg">
                 <li><a href="#" class="hover:underline">Home</a></li>
                 <li><a href="#" class="hover:underline">About</a></li>
                 <li><a href="#" class="hover:underline">Services</a></li>
@@ -28,7 +28,7 @@
             </ul>
 
             <div class="flex md:hidden">
-                <img src="./images/logo-mobile.svg" alt="">
+                <img src="./images/logo" alt="">
                 <p class="p-2 text-blue text-3xl">☰</p>
             </div>
 
@@ -44,20 +44,21 @@
                     class="w-full h-full object-cover opacity-30">
             </div>
 
-            <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-32 flex flex-col lg:flex-row items-center">
+            <div
+                class="flex relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-32 flex flex-col lg:flex-row items-center">
 
-                <div class="flex-1 text-center lg:text-left">
+                <div class="flex-1 text-center content-center">
                     <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
                         Confiança. Inovação. <br>
                         <span class="text-[#E2EAED]">VeritasCapital</span>
                     </h1>
-                    <p class="mt-6 text-lg md:text-xl text-gray-200 max-w-2xl">
+                    <p class="mt-6 text-lg md:text-xl text-gray-200 max-w-2xl content-center mx-auto">
                         Transformamos sua visão em realidade financeira, unindo
                         tecnologia de ponta e segurança no mercado de capitais.
                     </p>
-                    <div class="mt-8 flex justify-center lg:justify-start gap-4">
+                    <div class="mt-8 flex gap-4 justify-center">
                         <a href="#services"
-                            class="px-6 py-3 rounded-2xl bg-[#982041] hover:bg-[#7c1b36] transition font-semibold shadow-lg">
+                            class="px-6 py-3 rounded-2xl bg-[#982041] hover:bg-[#7c1b36] transition font-semibold shadow-lg ">
                             Nossos Serviços
                         </a>
                         <a href="#about"
@@ -67,13 +68,46 @@
                     </div>
                 </div>
 
-                <div class="flex-1 mt-12 lg:mt-0 lg:ml-12">
-                    <img src="./images/pexels-pixabay-164527.jpg" alt="Financial growth"
-                        class="rounded-2xl shadow-2xl border border-[#E2EAED]">
-                </div>
+
 
             </div>
         </section>
+
+        <section class="py-16">
+
+            <div class="pb-16 px-12 flex justify-center items-center flex-col text-center space-y-4">
+                <h1 class="text-4xl font-bold">Soluções Financeiras Completas </h1>
+                <p class="text-xl"> Oferecemos uma gama completa de produtos e serviços <span> bancários para atender
+                        todas as suas necessidades.</span></p>
+            </div>
+
+            <div id="cards" class="grid grid-cols-1 md:grid-cols-3 gap-8 px-12">
+
+                <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+                    <img src="./images/" alt="Consultoria Financeira" class="h-16 mx-auto mb-4 ">
+                    <h2 class="text-2xl font-semibold mb-2 ">Consultoria Financeira</h2>
+                    <p class="text-gray-600 ">Nossos especialistas ajudam você a planejar e gerenciar suas
+                        finanças pessoais e empresariais.</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+                    <img src="./images/" alt="Investimentos" class="h-16 mx-auto mb-4">
+                    <h2 class="text-2xl font-semibold mb-2 ">Investimentos</h2>
+                    <p class="text-gray-600 ">Oferecemos uma variedade de opções de investimento para ajudar
+                        você a crescer seu patrimônio.</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+                    <img src="./images/" alt="Empréstimos" class="h-16 mx-auto mb-4">
+                    <h2 class="text-2xl font-semibold mb-2">Empréstimos</h2>
+                    <p class="text-gray-600">Taxas competitivas e condições flexíveis para atender às suas
+                        necessidades financeiras.</p>
+                </div>
+
+            </div>
+
+        </section>
+
 
     </main>
 
