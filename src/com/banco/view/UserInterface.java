@@ -61,7 +61,8 @@ public class UserInterface {
         System.out.println("|                              "+ operationType +"                                  |");
         System.out.println("============================================================================");
         System.out.println("|                                                                          |");
-        System.out.println("| Por favor, insira o número de saldo que queira "+ commandType +":                |");
+        System.out.println("| Por favor, insira o número de saldo que queira                           |");
+        System.out.println("| "+ commandType + ":                                             |");
         System.out.println("|                                                                          |");
         System.out.println("============================================================================");
 
@@ -75,7 +76,7 @@ public class UserInterface {
         System.out.println("|  1 - Conta Corrente                                                     |");
         System.out.println("|  2 - Conta Poupança                                                     |");
         System.out.println("|                                                                         |");
-        System.out.println("|                                                           0 - Sair      |");
+        System.out.println("|                                                                         |");
         System.out.println("===========================================================================");
 
         return HandleError.validInt(input, "Tente novamente", "Digite uma opção: ");
@@ -143,6 +144,26 @@ public class UserInterface {
         System.err.println("===========================================================================");
         System.err.println("|                                                                         |");
         System.err.println("|  O valor retirado é maior do que já tem de saldo.                       |");
+        System.err.println("|                                                                         |");
+        System.err.println("===========================================================================");
+    }
+
+    public void transferLessTwo(){
+        System.err.println("===========================================================================");
+        System.err.println("|                                 Erro                                    |");
+        System.err.println("===========================================================================");
+        System.err.println("|                                                                         |");
+        System.err.println("|  É necessário haver duas contas para conseguir realizar transferência.  |");
+        System.err.println("|                                                                         |");
+        System.err.println("===========================================================================");
+    }
+
+    public void ListEmpty(){
+        System.err.println("===========================================================================");
+        System.err.println("|                                 Erro                                    |");
+        System.err.println("===========================================================================");
+        System.err.println("|                                                                         |");
+        System.err.println("|  Não há nenhuma conta registrada no momento.                            |");
         System.err.println("|                                                                         |");
         System.err.println("===========================================================================");
     }

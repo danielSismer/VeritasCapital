@@ -82,13 +82,22 @@ public class Banco {
                         uiView.notFound();
                     }
                 }
+                else {
+                    uiView.transferLessTwo();
+                }
             }
 
             //listagem
             case 5 -> {
-                for (Conta contaUnit : contas) {
-                    System.out.println(contaUnit);
+                if(contas.isEmpty()){
+                    uiView.ListEmpty();
                 }
+                else {
+                    for (Conta contaUnit : contas) {
+                        System.out.println(contaUnit);
+                    }
+                }
+
             }
 
 
