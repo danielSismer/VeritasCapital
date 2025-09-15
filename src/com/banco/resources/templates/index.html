@@ -1,23 +1,21 @@
 <!doctype html>
 <html lang="pt">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Teste Tailwind</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>VeritasCapital - Sistema Bancário Digital</title>
 </head>
 
-
 <body class="bg-gray-100">
-
 
     <header>
         <nav class="flex items-center justify-between p-6 bg-white shadow">
 
             <div>
-                <img src="./images/Veritas Capital (1).png" alt="LOGO">
+                <img src="./images/Veritas Capital.svg" alt="LOGO">
             </div>
 
             <ul class="hidden md:flex space-x-6">
@@ -28,7 +26,6 @@
             </ul>
 
             <div class="flex md:hidden">
-                <img src="./images/logo-mobile.svg" alt="">
                 <p class="p-2 text-blue text-3xl">☰</p>
             </div>
 
@@ -46,7 +43,7 @@
 
             <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-32 flex flex-col lg:flex-row items-center">
 
-                <div class="flex-1 text-center lg:text-left">
+                <div class="flex-1 d-flex justify-center">
                     <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
                         Confiança. Inovação. <br>
                         <span class="text-[#E2EAED]">VeritasCapital</span>
@@ -67,17 +64,68 @@
                     </div>
                 </div>
 
-                <div class="flex-1 mt-12 lg:mt-0 lg:ml-12">
-                    <img src="./images/pexels-pixabay-164527.jpg" alt="Financial growth"
-                        class="rounded-2xl shadow-2xl border border-[#E2EAED]">
-                </div>
+                
 
+            </div>
+        </section>
+
+        <section id="services" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Nossos Serviços</h2>
+                    <p class="text-xl text-gray-600">Soluções financeiras completas para você</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200 hover:shadow-xl transition-all duration-300 flex flex-col">
+                        <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-credit-card text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Conta Corrente</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Gerencie seu dinheiro com facilidade</p>
+                        <button class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition">
+                            Abrir Conta
+                        </button>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200 hover:shadow-xl transition-all duration-300 flex flex-col">
+                        <div class="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-piggy-bank text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Conta Poupança</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Faça seu dinheiro render mais</p>
+                        <button class="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition">
+                            Abrir Poupança
+                        </button>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200 hover:shadow-xl transition-all duration-300 flex flex-col">
+                        <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-chart-line text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Investimentos</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Multiplique seu patrimônio</p>
+                        <button class="w-full bg-purple-600 text-white py-3 rounded-xl font-semibold hover:bg-purple-700 transition">
+                            Investir
+                        </button>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-200 hover:shadow-xl transition-all duration-300 flex flex-col">
+                        <div class="w-16 h-16 bg-orange-600 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-hand-holding-usd text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Empréstimos</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Dinheiro rápido para suas necessidades</p>
+                        <button class="w-full bg-orange-600 text-white py-3 rounded-xl font-semibold hover:bg-orange-700 transition">
+                            Simular
+                        </button>
+                    </div>
+                </div>
             </div>
         </section>
 
     </main>
 
 </body>
-
 
 </html>
