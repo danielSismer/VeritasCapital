@@ -6,9 +6,11 @@ public class Conta {
     //transferências e listagem das contas, exibindo informações detalhadas conforme o tipo de
     //conta.
 
+    private Integer id;
     protected String titular;
     protected String numero;
     protected double saldo;
+    private String contaType;
 
     public Conta() {
         this.titular = null;
@@ -20,6 +22,21 @@ public class Conta {
         this.titular = titular;
         this.numero = numero;
         this.saldo = saldo;
+    }
+
+    public Conta(String titular, String numero, double saldo, String contaType) {
+        this.titular = titular;
+        this.numero = numero;
+        this.saldo = saldo;
+        this.contaType = contaType;
+    }
+
+    public Conta(Integer id, String titular, String numero, double saldo, String contaType) {
+        this.id = id;
+        this.titular = titular;
+        this.numero = numero;
+        this.saldo = saldo;
+        this.contaType = contaType;
     }
 
     public String getTitular() {
