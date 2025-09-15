@@ -8,20 +8,23 @@ public class Movimentacao {
     Titular titular_remetente;
     Titular titular_destinario;
     String movimentacaoType;
+    double valor;
     LocalDateTime data_horario;
 
-    public Movimentacao(Integer id, Titular titular_remetente, Titular titular_destinario, String movimentacaoType, LocalDateTime data_horario) {
+    public Movimentacao(Integer id, Titular titular_remetente, Titular titular_destinario, String movimentacaoType, double valor, LocalDateTime data_horario) {
         this.id = id;
         this.titular_remetente = titular_remetente;
         this.titular_destinario = titular_destinario;
         this.movimentacaoType = movimentacaoType;
+        this.valor = valor;
         this.data_horario = data_horario;
     }
 
-    public Movimentacao(Titular titular_remetente, Titular titular_destinario, String movimentacaoType, LocalDateTime data_horario) {
+    public Movimentacao(Titular titular_remetente, Titular titular_destinario, String movimentacaoType, double valor, LocalDateTime data_horario) {
         this.titular_remetente = titular_remetente;
         this.titular_destinario = titular_destinario;
         this.movimentacaoType = movimentacaoType;
+        this.valor = valor;
         this.data_horario = data_horario;
     }
 

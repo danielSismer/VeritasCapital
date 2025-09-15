@@ -1,20 +1,29 @@
 package com.banco.service;
 
-import com.banco.model.Conta;
-import com.banco.model.ContaCorrente;
-import com.banco.model.ContaPoupanca;
+import com.banco.dao.ContaDao;
+import com.banco.dao.TitularDao;
+import com.banco.model.*;
 import com.banco.view.UserInterface;
 
 import java.util.ArrayList;
 
 public class Banco {
 
+    ArrayList<Titular> titulares;
     ArrayList<Conta> contas;
+    ArrayList<Movimentacao> movimentacoes;
+
     UserInterface uiView;
+
+    TitularDao titularData;
+    ContaDao contaData;
+
 
     public Banco(){
         contas = new ArrayList<>();
         uiView = new UserInterface();
+        titularData = new TitularDao();
+        contaData = new ContaDao();
     }
 
     //depositar = ganho de saldo
@@ -32,14 +41,27 @@ public class Banco {
                 uiView.shutdown();
             }
 
-            case 1 -> {
-                Conta conta = formerConta();
+            case 1 ->{
+
+                String nome = uiView.readTitular("Cadastrar titular", "nome");;
+                String cpf = uiView.readTitular("Cadastrar titular", "CPF/CNPJ");
+                titularData.insert(nome, cpf);
+            }
+
+            case 2 -> {
+                Integer titular_id = uiView.readId("Registrar Conta", "ID");
+                String numeroConta = uiView.readConta("Registrar Conta");
                 int keyType = uiView.typePage();
-                managerType(keyType, conta);
+                ContaType contaEnum = managerType(keyType);
+                String contaTypeString = contaEnum.toString();
+
+                Titular titular = listTitular(titular_id);
+
+                contaData.insert(titular, numeroConta, 0, contaTypeString);
             }
 
             //depósito
-            case 2 -> {
+            case 3 -> {
                 Conta conta = searchNumberAccount(uiView.readConta("Depósito"));
 
                 if(conta != null){
@@ -50,7 +72,7 @@ public class Banco {
 
             }
             //saque
-            case 3 -> {
+            case 4 -> {
                 Conta conta = searchNumberAccount(uiView.readConta("Saque"));
 
                 if(conta != null){
@@ -67,7 +89,7 @@ public class Banco {
             }
 
             //transferência
-            case 4 -> {
+            case 5 -> {
                 if(contas.size() >= 2){
                     Conta senderAccount = searchNumberAccount(uiView.readConta("Conta remetente"));
                     Conta receiverAccount = searchNumberAccount(uiView.readConta("Conta Destinatária"));
@@ -88,7 +110,7 @@ public class Banco {
             }
 
             //listagem
-            case 5 -> {
+            case 6 -> {
                 if(contas.isEmpty()){
                     uiView.ListEmpty();
                 }
@@ -109,28 +131,31 @@ public class Banco {
 
     //Toda conta criada tem valor 0 de saldo
 
-    private Conta formerConta() {
-        String titular = uiView.readTitular("Registrar");
-        String numeroConta = uiView.readConta("Registrar");
 
-        return new Conta(titular, numeroConta, 0);
-    }
-
-    private void managerType(int keyType, Conta conta) {
+    private ContaType managerType(int keyType) {
         switch (keyType) {
 
             case 1 -> {
-                Conta objectChoose = formerContaCorrente(conta);
-                contas.add(objectChoose);
+                return ContaType.CONTA_CORRENTE;
             }
             case 2 -> {
-                Conta objectChoose = formerContaPoupanca(conta);
-                contas.add(objectChoose);
+                return ContaType.CONTA_POUPANCA;
             }
             default -> {
                 uiView.errorDefault();
+                return null;
             }
         }
+    }
+
+    private Titular listTitular(Integer id){
+        for(Titular titular: titulares){
+            if(titular.getId() == id){
+                return titular;
+            }
+        }
+
+        return null;
     }
 
     private Conta formerContaCorrente(Conta conta) {

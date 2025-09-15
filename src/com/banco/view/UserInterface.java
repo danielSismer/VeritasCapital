@@ -18,16 +18,33 @@ public class UserInterface {
         System.out.println("===========================================================================");
         System.out.println("|                          Veritas Capital                                |");
         System.out.println("===========================================================================");
-        System.out.println("|  1 - Registrar conta                                                    |");
-        System.out.println("|  2 - Depositar                                                          |");
-        System.out.println("|  3 - Sacar                                                              |");
-        System.out.println("|  4 - Transferir                                                         |");
-        System.out.println("|  5 - Listar contas                                                      |");
+        System.out.println("|  1 - Registrar titular                                                  |");
+        System.out.println("|  2 - Registrar conta                                                    |");
+        System.out.println("|  3 - Depositar                                                          |");
+        System.out.println("|  4 - Sacar                                                              |");
+        System.out.println("|  5 - Transferir                                                         |");
+        System.out.println("|  6 - Listar contas                                                      |");
         System.out.println("|                                                                         |");
         System.out.println("|                                                           0 - Sair      |");
         System.out.println("===========================================================================");
 
         return HandleError.validInt(input, "Tente novamente", "Digite uma opção: ");
+    }
+
+    public Integer readId(String operationType, String entidade){
+        System.out.println("============================================================================");
+        System.out.println("|                              "+ operationType +"                                  |");
+        System.out.println("============================================================================");
+        System.out.println("|                                                                          |");
+        System.out.printf("| Por favor, insira o ID do %s:                              |", entidade);
+        System.out.println("|                                                                          |");
+        System.out.println("============================================================================");
+
+        Integer id = input.nextInt();
+        input.nextLine();
+
+
+        return id;
     }
 
 
@@ -44,12 +61,12 @@ public class UserInterface {
         return input.nextLine();
     }
 
-    public String readTitular(String operationType){
+    public String readTitular(String operationType, String entidade){
         System.out.println("============================================================================");
         System.out.println("|                              "+ operationType +"                                  |");
         System.out.println("============================================================================");
         System.out.println("|                                                                          |");
-        System.out.println("| Por favor, insira o titular da conta:                                    |");
+        System.out.printf("| Por favor, insira o %s do titular da conta:                              |", entidade);
         System.out.println("|                                                                          |");
         System.out.println("============================================================================");
 
@@ -108,6 +125,18 @@ public class UserInterface {
         return HandleError.validDouble(input, "Tente novamente", "Digite um número correspondente: ");
     }
 
+    public void confirmInsert(String entidade){
+
+        System.out.println("===========================================================================");
+        System.out.println("|                              Registrar                                  |");
+        System.out.println("===========================================================================");
+        System.out.println("|                                                                         |");
+        System.out.printf("| %s registrada com sucesso!                      |", entidade);
+        System.out.println("|                                                                         |");
+        System.out.println("===========================================================================");
+
+    }
+
     public void shutdown(){
         System.out.println("===========================================================================");
         System.out.println("|                             Encerramento                                 |");
@@ -164,6 +193,17 @@ public class UserInterface {
         System.err.println("===========================================================================");
         System.err.println("|                                                                         |");
         System.err.println("|  Não há nenhuma conta registrada no momento.                            |");
+        System.err.println("|                                                                         |");
+        System.err.println("===========================================================================");
+    }
+
+    public void errorDatabase(){
+        System.err.println("===========================================================================");
+        System.err.println("|                                 Erro                                    |");
+        System.err.println("===========================================================================");
+        System.err.println("|                                                                         |");
+        System.err.println("|  Não foi possível comunicar com o banco de dados do Veritas Capital,    |");
+        System.err.println("|  tente novamente outra hora.                                            |");
         System.err.println("|                                                                         |");
         System.err.println("===========================================================================");
     }

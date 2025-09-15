@@ -36,5 +36,6 @@ foreign key (titular_remetente) references titular(id),
 titular_destinatario int not null,
 foreign key (titular_destinatario) references titular(id),
 tipo enum("DEPOSITO", "SAQUE", "TRANSFERENCIA")	not null,
-data_horario datetime not null default current_timestamp 
+valor double(8,2),
+data_horario datetime not null default current_timestamp
 );
