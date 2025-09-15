@@ -18,12 +18,14 @@ tipo enum("CONTA_CORRENTE", "CONTA_POUPANÇA") not null
 );
 
 create table conta_poupanca(
-id int primary key auto_increment,
+id int auto_increment not null,
+foreign key (id) references conta(id),
 taxaRendimento double (2,2) not null
 );
 
 create table conta_corrente(
-id int primary key auto_increment,
+id int auto_increment not null,
+foreign key (id) references conta(id),
 movimentacaoDiaria double (8,2) not null
 );
 
