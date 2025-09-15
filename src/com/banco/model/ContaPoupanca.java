@@ -10,7 +10,7 @@ public class ContaPoupanca extends Conta {
         this.taxaRendimento = 0.0;
     }
 
-    public ContaPoupanca(String titular, String numero, double saldo, double taxaRendimento) {
+    public ContaPoupanca(Titular titular, String numero, double saldo, double taxaRendimento) {
         super(titular, numero, saldo);
         this.taxaRendimento = taxaRendimento;
     }

@@ -7,7 +7,7 @@ public class ContaCorrente extends Conta{
 
     public ContaCorrente(){ super(); this.movimentacaoDiaria = 0; }
 
-    public ContaCorrente(String titular, String numero, double saldo, double movimentacaoDiaria){ super(titular, numero, saldo); this.movimentacaoDiaria = movimentacaoDiaria; }
+    public ContaCorrente(Titular titular, String numero, double saldo, double movimentacaoDiaria){ super(titular, numero, saldo); this.movimentacaoDiaria = movimentacaoDiaria; }
 
     public ContaCorrente(Integer id, double movimentacaoDiaria) {
         this.movimentacaoDiaria = movimentacaoDiaria;

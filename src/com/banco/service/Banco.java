@@ -6,12 +6,13 @@ import com.banco.model.*;
 import com.banco.view.UserInterface;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Banco {
 
-    ArrayList<Titular> titulares;
-    ArrayList<Conta> contas;
-    ArrayList<Movimentacao> movimentacoes;
+    List<Titular> titulares;
+    List<Conta> contas;
+    List<Movimentacao> movimentacoes;
 
     UserInterface uiView;
 
@@ -34,7 +35,7 @@ public class Banco {
     // depositar ->
     // sacar ->
 
-    public void managerPage(int keyPage, ContaPoupanca contaPoupanca, ContaCorrente contaCorrente) {
+    public void managerPage(int keyPage) {
         switch (keyPage) {
 
             case 0 -> {
@@ -49,7 +50,7 @@ public class Banco {
             }
 
             case 2 -> {
-                Integer titular_id = uiView.readId("Registrar Conta", "ID");
+                Integer titular_id = uiView.readId("Registrar Conta", "a conta");
                 String numeroConta = uiView.readConta("Registrar Conta");
                 int keyType = uiView.typePage();
                 ContaType contaEnum = managerType(keyType);
@@ -149,6 +150,8 @@ public class Banco {
     }
 
     private Titular listTitular(Integer id){
+        TitularDao titularData = new TitularDao();
+        titulares = titularData.select();
         for(Titular titular: titulares){
             if(titular.getId() == id){
                 return titular;
@@ -156,22 +159,6 @@ public class Banco {
         }
 
         return null;
-    }
-
-    private Conta formerContaCorrente(Conta conta) {
-        String titular = conta.getTitular();
-        String numeroConta = conta.getNumero();
-        double movimentacaoDiaria = uiView.readMovimentacao();
-
-        return new ContaCorrente(titular, numeroConta, 0, movimentacaoDiaria);
-    }
-
-    private Conta formerContaPoupanca(Conta conta) {
-        String titular = conta.getTitular();
-        String numeroConta = conta.getNumero();
-        double taxaRendimento = uiView.readRendimento();
-
-        return new ContaPoupanca(titular, numeroConta, 0, taxaRendimento);
     }
 
     private Conta searchNumberAccount(String numberAccount) {

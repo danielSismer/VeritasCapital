@@ -39,11 +39,11 @@ public class TitularDao {
 
     public List<Titular> select(){
         String sql = """
-                select nome, cpf
+                select id, nome, cpf
                 from titular;
                 """;
 
-        ArrayList<Titular> titulares = new ArrayList<>();
+        List<Titular> titulares = new ArrayList<>();
 
         try(Connection conn = Connect.connect();
             PreparedStatement stmt = conn.prepareStatement(sql)){
@@ -51,15 +51,14 @@ public class TitularDao {
             ResultSet rs = stmt.executeQuery();
 
             while(rs.next()){
+                Integer id = rs.getInt("id");
                 String nome = rs.getString("nome");
                 String cpf = rs.getString("cpf");
 
-                Titular titular = new Titular(nome, cpf);
+                Titular titular = new Titular(id, nome, cpf);
 
                 titulares.add(titular);
             }
-
-            stmt.executeUpdate();
 
         }catch (SQLException e){
             uiView.errorDatabase();

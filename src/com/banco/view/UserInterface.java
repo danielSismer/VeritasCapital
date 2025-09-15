@@ -36,7 +36,7 @@ public class UserInterface {
         System.out.println("|                              "+ operationType +"                                  |");
         System.out.println("============================================================================");
         System.out.println("|                                                                          |");
-        System.out.printf("| Por favor, insira o ID do %s:                              |", entidade);
+        System.out.printf("| Por favor, insira o ID d%s:                              |\n", entidade);
         System.out.println("|                                                                          |");
         System.out.println("============================================================================");
 
@@ -131,7 +131,7 @@ public class UserInterface {
         System.out.println("|                              Registrar                                  |");
         System.out.println("===========================================================================");
         System.out.println("|                                                                         |");
-        System.out.printf("| %s registrada com sucesso!                      |", entidade);
+        System.out.printf("|   %s registrada com sucesso!                      |", entidade);
         System.out.println("|                                                                         |");
         System.out.println("===========================================================================");
 

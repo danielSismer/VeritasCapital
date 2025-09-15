@@ -12,8 +12,6 @@ import java.awt.print.Book;
 public class Main {
     public static void main(String[] args) {
 
-        ContaCorrente contaCorrente = new ContaCorrente();
-        ContaPoupanca contaPoupanca = new ContaPoupanca();
         UserInterface userInterface = new UserInterface();
         Banco banco = new Banco();
         int keyMenu = -1;
@@ -21,7 +19,7 @@ public class Main {
 
         while (keyMenu!=0){
             keyMenu = userInterface.mainPage();
-            banco.managerPage(keyMenu, contaPoupanca, contaCorrente);
+            banco.managerPage(keyMenu);
         }
     }
 }

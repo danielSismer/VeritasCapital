@@ -7,7 +7,7 @@ public class Conta {
     //conta.
 
     private Integer id;
-    protected String titular;
+    protected Titular titular;
     protected String numero;
     protected double saldo;
     private String contaType;
@@ -18,20 +18,20 @@ public class Conta {
         this.saldo = 0;
     }
 
-    public Conta(String titular, String numero, double saldo) {
+    public Conta(Titular titular, String numero, double saldo) {
         this.titular = titular;
         this.numero = numero;
         this.saldo = saldo;
     }
 
-    public Conta(String titular, String numero, double saldo, String contaType) {
+    public Conta(Titular titular, String numero, double saldo, String contaType) {
         this.titular = titular;
         this.numero = numero;
         this.saldo = saldo;
         this.contaType = contaType;
     }
 
-    public Conta(Integer id, String titular, String numero, double saldo, String contaType) {
+    public Conta(Integer id, Titular titular, String numero, double saldo, String contaType) {
         this.id = id;
         this.titular = titular;
         this.numero = numero;
@@ -39,11 +39,11 @@ public class Conta {
         this.contaType = contaType;
     }
 
-    public String getTitular() {
+    public Titular getTitular() {
         return titular;
     }
 
-    public void setTitular(String titular) {
+    public void setTitular(Titular titular) {
         this.titular = titular;
     }
 
@@ -64,7 +64,12 @@ public class Conta {
     }
 
     public String toString(){
-        return "Titular: " + titular + "\nNúmero da Conta: " + numero + "\nSaldo: " + saldo;
+        return "=========================| Conta |=========================\n" +
+                "ID: " + this.id +
+                "\nTitular: " + this.titular.getNome() +
+                "\nNúmero: " + this.numero +
+                "\nSaldo: " + this.saldo +
+                "\nTipo de conta: " + this.contaType + "\n";
     }
 
 }
