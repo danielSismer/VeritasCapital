@@ -151,12 +151,12 @@ public class UserInterface {
         System.err.println("===========================================================================");
     }
 
-    public void notFound(){
+    public void notFound(String entity){
         System.err.println("===========================================================================");
         System.err.println("|                                 Erro                                    |");
         System.err.println("===========================================================================");
         System.err.println("|                                                                         |");
-        System.err.println("| Por favor, insira uma conta que exista no sistema.                      |");
+        System.err.printf("| Por favor, insira um%s que exista no sistema.                      |\n", entity);
         System.err.println("|                                                                         |");
         System.err.println("===========================================================================");
     }

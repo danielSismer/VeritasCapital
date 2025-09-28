@@ -53,6 +53,7 @@ public class Banco {
 
                 String nome = uiView.readTitular("Cadastrar titular", "nome");;
                 String cpf_cnpj = uiView.readTitular("Cadastrar titular", "CPF/CNPJ");
+
                 if(cpf_cnpj.length() != 11 && cpf_cnpj.length() != 14){
                     uiView.errorDigits();
                     return;
@@ -76,7 +77,7 @@ public class Banco {
                 Titular titular = searchTitular(titular_id);
 
                 if(titular == null){
-                    uiView.notFound();
+                    uiView.notFound("o titular");
                     return;
                 }
 
@@ -108,12 +109,15 @@ public class Banco {
                 listConta();
                 Integer conta_id = uiView.readId("Depósito", "a conta");
                 Conta conta = searchConta(conta_id);
+
                 if(conta == null){
-                    uiView.notFound();
+                    uiView.notFound("a conta");
+                    return;
                 }
-                String numeroConta = conta.getNumero();
+
                 String tipo = MovimentacaoType.DEPOSITO.toString();
                 double saldo = uiView.readSaldo("Depósito", "depositar");
+
                 if(saldo <= 0){
                     uiView.saldoNegativo("depósito");
                     return;
@@ -133,17 +137,35 @@ public class Banco {
             //Pesquisa conta
             //insert de movimentacao
             case 4 -> {
-                Conta conta = searchNumberAccount(uiView.readConta("Saque"));
+                listConta();
+                Integer conta_id = uiView.readId("Saque", "a conta");
+                Conta conta = searchConta(conta_id);
 
-                if(conta != null){
-                    double balanceAccount = withdrawal(conta);
+                if(conta == null){
+                    uiView.notFound("a conta");
+                    return;
+                }
 
-                    if (balanceAccount == -1){
-                        uiView.balanceAbove();
-                    }
+                String tipo = MovimentacaoType.SAQUE.toString();
 
-                } else {
-                    uiView.notFound();
+                double saldo = uiView.readSaldo("Saque", "sacar");
+
+                if(saldo <= 0){
+                    uiView.saldoNegativo("saque");
+                    return;
+                }
+
+                if((conta.getSaldo() - saldo) < 0){
+                    uiView.balanceAbove();
+                    return;
+                }
+
+                Movimentacao movimentacao = new Movimentacao(conta, conta, tipo, saldo, LocalDateTime.now());
+
+                try{
+                    movimentacaoData.insert(movimentacao);
+                }catch (SQLException e){
+                    e.printStackTrace();
                 }
 
             }
@@ -164,7 +186,7 @@ public class Banco {
                             uiView.balanceAbove();
                         }
                     } else {
-                        uiView.notFound();
+                        uiView.notFound("a conta");
                     }
                 }
                 else {

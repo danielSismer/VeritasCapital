@@ -72,4 +72,7 @@ public class ContaDao {
 
         return contas;
     }
+
+    public void updateSaldo() throws SQLException{
+    }
 }
