@@ -119,7 +119,7 @@ public class Banco {
                 double saldo = uiView.readSaldo("Depósito", "depositar");
 
                 if(saldo <= 0){
-                    uiView.saldoNegativo("depósito");
+                    uiView.saldoNegativo("o depósito");
                     return;
                 }
 
@@ -151,7 +151,7 @@ public class Banco {
                 double saldo = uiView.readSaldo("Saque", "sacar");
 
                 if(saldo <= 0){
-                    uiView.saldoNegativo("saque");
+                    uiView.saldoNegativo("o saque");
                     return;
                 }
 
@@ -175,22 +175,55 @@ public class Banco {
             //diminui saldo do remetente -> update conta: saldo
             //aumenta saldo do destinatário -> update conta: saldo
             case 5 -> {
-                if(contas.size() >= 2){
-                    Conta senderAccount = searchNumberAccount(uiView.readConta("Conta remetente"));
-                    Conta receiverAccount = searchNumberAccount(uiView.readConta("Conta Destinatária"));
-
-                    if(senderAccount != null && receiverAccount != null){
-                        double balanceSender = transfer(senderAccount, receiverAccount);
-
-                        if(balanceSender == -1){
-                            uiView.balanceAbove();
-                        }
-                    } else {
-                        uiView.notFound("a conta");
-                    }
+                try {
+                    contas = contaData.select();
+                }catch (SQLException e){
+                    e.printStackTrace();
                 }
-                else {
+
+                if(contas.size() < 2){
                     uiView.transferLessTwo();
+                    return;
+                }
+
+                listConta();
+                Integer conta_remetente_id = uiView.readId("Transferência", "a conta remetente");
+                Conta contaRemetente = searchConta(conta_remetente_id);
+
+                if(contaRemetente == null){
+                    uiView.notFound("a conta");
+                    return;
+                }
+
+                listConta();
+                Integer conta_destinatario_id = uiView.readId("Transferência", "a conta destinatária");
+                Conta contaDestinatario = searchConta(conta_destinatario_id);
+
+                if(contaDestinatario == null){
+                    uiView.notFound("a conta");
+                    return;
+                }
+
+                String tipo = MovimentacaoType.TRANSFERENCIA.toString();
+
+                double saldo = uiView.readSaldo("Transferência", "transferir");
+
+                if(saldo <= 0){
+                    uiView.saldoNegativo("a transferência");
+                    return;
+                }
+
+                if((contaRemetente.getSaldo() - saldo) < 0){
+                    uiView.balanceAbove();
+                    return;
+                }
+
+                Movimentacao movimentacao = new Movimentacao(contaRemetente, contaDestinatario, tipo, saldo, LocalDateTime.now());
+
+                try{
+                    movimentacaoData.insert(movimentacao);
+                }catch (SQLException e){
+                    e.printStackTrace();
                 }
             }
 

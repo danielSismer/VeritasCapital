@@ -176,7 +176,7 @@ public class UserInterface {
         System.err.println("|                                 Erro                                    |");
         System.err.println("===========================================================================");
         System.err.println("|                                                                         |");
-        System.err.printf("|  Digite um valor positivo para realizar o %s.                       |\n", operation);
+        System.err.printf("|  Digite um valor positivo para realizar %s.                       |\n", operation);
         System.err.println("|                                                                         |");
         System.err.println("===========================================================================");
     }
