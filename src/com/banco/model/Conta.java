@@ -39,6 +39,16 @@ public class Conta {
         this.contaType = contaType;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+
+
     public Titular getTitular() {
         return titular;
     }
@@ -61,6 +71,14 @@ public class Conta {
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    public String getContaType() {
+        return contaType;
+    }
+
+    public void setContaType(String contaType) {
+        this.contaType = contaType;
     }
 
     public String toString(){

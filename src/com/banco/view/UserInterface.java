@@ -12,8 +12,6 @@ public class UserInterface {
         input = new Scanner(System.in);
     }
 
-    //Daniel, adicionei registrar conta, pois todo depósito e essas outras opções presumem que existe uma conta
-
     public int mainPage() {
         System.out.println("===========================================================================");
         System.out.println("|                          Veritas Capital                                |");
@@ -33,25 +31,21 @@ public class UserInterface {
 
     public Integer readId(String operationType, String entidade){
         System.out.println("============================================================================");
-        System.out.println("|                              "+ operationType +"                                  |");
+        System.out.println("                              "+ operationType +"                                  ");
         System.out.println("============================================================================");
         System.out.println("|                                                                          |");
         System.out.printf("| Por favor, insira o ID d%s:                              |\n", entidade);
         System.out.println("|                                                                          |");
         System.out.println("============================================================================");
 
-        Integer id = input.nextInt();
-        input.nextLine();
-
-
-        return id;
+        return HandleError.validInt(input, "Tente novamente", "Digite um id correspondente acima: ");
     }
 
 
     public String readConta(String operationType) {
 
         System.out.println("============================================================================");
-        System.out.println("|                              "+ operationType +"                                  |");
+        System.out.println("                              "+ operationType +"                          ");
         System.out.println("============================================================================");
         System.out.println("|                                                                          |");
         System.out.println("| Por favor, insira o número da sua conta:                                 |");
@@ -63,7 +57,7 @@ public class UserInterface {
 
     public String readTitular(String operationType, String entidade){
         System.out.println("============================================================================");
-        System.out.println("|                              "+ operationType +"                                  |");
+        System.out.println("                              "+ operationType +"                                  ");
         System.out.println("============================================================================");
         System.out.println("|                                                                          |");
         System.out.printf("| Por favor, insira o %s do titular da conta:                              |", entidade);
@@ -75,7 +69,7 @@ public class UserInterface {
 
     public double readSaldo(String operationType, String commandType){
         System.out.println("============================================================================");
-        System.out.println("|                              "+ operationType +"                                  |");
+        System.out.println("                              "+ operationType +"                                  ");
         System.out.println("============================================================================");
         System.out.println("|                                                                          |");
         System.out.println("| Por favor, insira o número de saldo que queira                           |");
@@ -131,7 +125,7 @@ public class UserInterface {
         System.out.println("|                              Registrar                                  |");
         System.out.println("===========================================================================");
         System.out.println("|                                                                         |");
-        System.out.printf("|   %s registrada com sucesso!                      |", entidade);
+        System.out.printf("|   %s registrada com sucesso!                      |\n", entidade);
         System.out.println("|                                                                         |");
         System.out.println("===========================================================================");
 
@@ -162,7 +156,27 @@ public class UserInterface {
         System.err.println("|                                 Erro                                    |");
         System.err.println("===========================================================================");
         System.err.println("|                                                                         |");
-        System.err.println("| Por favor, insira uma conta que exista no sistema                       |");
+        System.err.println("| Por favor, insira uma conta que exista no sistema.                      |");
+        System.err.println("|                                                                         |");
+        System.err.println("===========================================================================");
+    }
+
+    public void errorDigits(){
+        System.err.println("===========================================================================");
+        System.err.println("|                                 Erro                                    |");
+        System.err.println("===========================================================================");
+        System.err.println("|                                                                         |");
+        System.err.println("| Por favor, digite um CPF/CNPJ com 11 ou 14 dígitos.                     |");
+        System.err.println("|                                                                         |");
+        System.err.println("===========================================================================");
+    }
+
+    public void saldoNegativo(String operation){
+        System.err.println("===========================================================================");
+        System.err.println("|                                 Erro                                    |");
+        System.err.println("===========================================================================");
+        System.err.println("|                                                                         |");
+        System.err.printf("|  Digite um valor positivo para realizar o %s.                       |\n", operation);
         System.err.println("|                                                                         |");
         System.err.println("===========================================================================");
     }

@@ -5,24 +5,24 @@ import java.time.LocalDateTime;
 public class Movimentacao {
 
     Integer id;
-    Titular titular_remetente;
-    Titular titular_destinario;
+    Conta conta_remetente;
+    Conta conta_destinario;
     String movimentacaoType;
     double valor;
     LocalDateTime data_horario;
 
-    public Movimentacao(Integer id, Titular titular_remetente, Titular titular_destinario, String movimentacaoType, double valor, LocalDateTime data_horario) {
+    public Movimentacao(Integer id, Conta conta_remetente, Conta conta_destinario, String movimentacaoType, double valor, LocalDateTime data_horario) {
         this.id = id;
-        this.titular_remetente = titular_remetente;
-        this.titular_destinario = titular_destinario;
+        this.conta_remetente = conta_remetente;
+        this.conta_destinario = conta_destinario;
         this.movimentacaoType = movimentacaoType;
         this.valor = valor;
         this.data_horario = data_horario;
     }
 
-    public Movimentacao(Titular titular_remetente, Titular titular_destinario, String movimentacaoType, double valor, LocalDateTime data_horario) {
-        this.titular_remetente = titular_remetente;
-        this.titular_destinario = titular_destinario;
+    public Movimentacao(Conta conta_remetente, Conta conta_destinario, String movimentacaoType, double valor, LocalDateTime data_horario) {
+        this.conta_remetente = conta_remetente;
+        this.conta_destinario = conta_destinario;
         this.movimentacaoType = movimentacaoType;
         this.valor = valor;
         this.data_horario = data_horario;
@@ -36,20 +36,20 @@ public class Movimentacao {
         this.id = id;
     }
 
-    public Titular getTitular_remetente() {
-        return titular_remetente;
+    public Conta getConta_remetente() {
+        return conta_remetente;
     }
 
-    public void setTitular_remetente(Titular titular_remetente) {
-        this.titular_remetente = titular_remetente;
+    public void setConta_remetente(Conta conta_remetente) {
+        this.conta_remetente = conta_remetente;
     }
 
-    public Titular getTitular_destinario() {
-        return titular_destinario;
+    public Conta getConta_destinario() {
+        return conta_destinario;
     }
 
-    public void setTitular_destinario(Titular titular_destinario) {
-        this.titular_destinario = titular_destinario;
+    public void setConta_destinario(Conta conta_destinario) {
+        this.conta_destinario = conta_destinario;
     }
 
     public String getMovimentacaoType() {
@@ -58,6 +58,14 @@ public class Movimentacao {
 
     public void setMovimentacaoType(String movimentacaoType) {
         this.movimentacaoType = movimentacaoType;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
     public LocalDateTime getData_horario() {

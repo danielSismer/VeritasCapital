@@ -15,7 +15,7 @@ public class TitularDao {
 
     UserInterface uiView =new UserInterface();
 
-    public void insert(String nome, String cpf){
+    public void insert(String nome, String cpf) throws SQLException{
         String sql = """
                 INSERT INTO titular (nome, cpf)
                 VALUES (?, ?);
@@ -29,7 +29,7 @@ public class TitularDao {
 
             stmt.executeUpdate();
 
-            uiView.confirmInsert("Titular");
+
 
         }catch (SQLException e){
             uiView.errorDatabase();

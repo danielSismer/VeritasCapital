@@ -17,6 +17,15 @@ public class Titular {
         this.cpf = cpf;
     }
 
+    public Titular(Integer id, String nome){
+        this.id = id;
+        this.nome = nome;
+    }
+
+    public Titular(Integer id){
+        this.id = id;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -39,5 +48,12 @@ public class Titular {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String toString(){
+        return "=========================| Titular |=========================\n" +
+                "ID: " + this.id +
+                "\nTitular: " + this.nome +
+                "\nNúmero: " + this.cpf + "\n";
     }
 }
