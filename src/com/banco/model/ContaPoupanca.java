@@ -24,7 +24,7 @@ public class ContaPoupanca extends Conta {
 
     @Override
     public String toString() {
-        return super.toString() + "\n Taxa de Rendimento: " + taxaRendimento;
+        return super.toString() + "\nTaxa de Rendimento: " + taxaRendimento;
     }
 
 

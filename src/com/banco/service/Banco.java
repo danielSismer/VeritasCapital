@@ -93,9 +93,7 @@ public class Banco {
                     uiView.ListEmpty();
                 }
                 else {
-                    for (Conta contaUnit : contas) {
-                        System.out.println(contaUnit);
-                    }
+                    managerList(uiView.typeList());
                 }
 
             }
@@ -129,6 +127,30 @@ public class Banco {
             }
             default -> {
                 uiView.errorDefault();
+            }
+        }
+    }
+
+    private void managerList(int keyType){
+        switch (keyType){
+            case 1 ->{
+                for(Conta conta: contas){
+                    if (conta instanceof ContaCorrente){
+                        System.out.println(conta);
+                    }
+                }
+            }
+            case 2 ->{
+                for(Conta conta: contas){
+                    if (conta instanceof ContaPoupanca){
+                        System.out.println(conta);
+                    }
+                }
+            }
+            case 3 ->{
+                for(Conta conta: contas){
+                    System.out.println(conta);
+                }
             }
         }
     }

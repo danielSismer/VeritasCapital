@@ -47,7 +47,11 @@ public class Conta {
     }
 
     public String toString(){
-        return "Titular: " + titular + "\nNúmero da Conta: " + numero + "\nSaldo: " + saldo;
+        return "=========================| Conta |=========================\n" +
+                "Titular: " + this.titular +
+                "\nNúmero: " + this.numero +
+                "\nSaldo: " + this.saldo +"\n";
     }
+
 
 }

@@ -41,7 +41,7 @@ public class UserInterface {
         System.out.println("|                                                                          |");
         System.out.println("============================================================================");
 
-        return input.nextLine();
+        return HandleError.validEmpty(input,"Tente novamente", "Digite o que está sendo demandado: ");
     }
 
     public String readTitular(String operationType){
@@ -53,7 +53,7 @@ public class UserInterface {
         System.out.println("|                                                                          |");
         System.out.println("============================================================================");
 
-        return input.nextLine();
+        return HandleError.validEmpty(input,"Tente novamente", "Digite o que está sendo demandado: ");
     }
 
     public double readSaldo(String operationType, String commandType){
@@ -75,6 +75,20 @@ public class UserInterface {
         System.out.println("===========================================================================");
         System.out.println("|  1 - Conta Corrente                                                     |");
         System.out.println("|  2 - Conta Poupança                                                     |");
+        System.out.println("|                                                                         |");
+        System.out.println("|                                                                         |");
+        System.out.println("===========================================================================");
+
+        return HandleError.validInt(input, "Tente novamente", "Digite uma opção: ");
+    }
+
+    public int typeList(){
+        System.out.println("===========================================================================");
+        System.out.println("|                            Tipo de conta                                |");
+        System.out.println("===========================================================================");
+        System.out.println("|  1 - Conta Corrente                                                     |");
+        System.out.println("|  2 - Conta Poupança                                                     |");
+        System.out.println("|  3 - Todas as contas                                                    |");
         System.out.println("|                                                                         |");
         System.out.println("|                                                                         |");
         System.out.println("===========================================================================");
