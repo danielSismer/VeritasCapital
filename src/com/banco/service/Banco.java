@@ -42,7 +42,7 @@ public class Banco {
     // depositar ->
     // sacar ->
 
-    public void managerPage(int keyPage) {
+    public void managerPage(int keyPage) throws SQLException {
         switch (keyPage) {
 
             case 0 -> {
@@ -229,6 +229,7 @@ public class Banco {
 
             //listagem
             case 6 -> {
+                List<Conta> contas = contaData.select();
                 if(contas.isEmpty()){
                     uiView.ListEmpty();
                 }

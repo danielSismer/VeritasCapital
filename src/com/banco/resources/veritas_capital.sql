@@ -1,7 +1,4 @@
-drop database veritas_capital;
-create database veritas_capital;
-
-use veritas_capital;
+use railway;
 
 create table titular(
 id int primary key auto_increment,
@@ -70,15 +67,13 @@ BEGIN
 	ELSEIF NEW.tipo = "TRANSFERENCIA" THEN
 		UPDATE conta
         SET saldo = saldo + NEW.valor
-        WHERE id = movimentacao.conta_destinatario;
+        WHERE id = NEW.conta_destinatario;
         UPDATE conta
         SET saldo = saldo - NEW.valor
-        WHERE id = movimentacao.conta_remetente;
+        WHERE id = NEW.conta_remetente;
 	END IF;
 END$$
 
 DELIMITER ;
-
-drop trigger atualiza_saldo;
 
 show triggers;

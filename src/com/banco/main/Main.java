@@ -8,9 +8,10 @@ import com.banco.view.HandleError;
 import com.banco.view.UserInterface;
 
 import java.awt.print.Book;
+import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         UserInterface userInterface = new UserInterface();
         Banco banco = new Banco();
