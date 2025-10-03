@@ -13,7 +13,7 @@
         <nav class="flex items-center justify-between p-6 bg-white shadow">
 
             <div>
-                <img src="./images/Veritas Capital (1).png" alt="LOGO">
+                <img src="./images/Veritas Capital.svg" alt="LOGO">
             </div>
 
             <ul class="hidden md:flex space-x-6">
@@ -38,15 +38,15 @@
 
     <main >
 
-        <div class="bg-gradient-to-r from-[#102346] via-[#2E5C91] to-[#982041] flex flex-col my-[2rem] py-[2rem] mx-[1rem] px-[1rem] md:flex-row justify-between items-start @min-[500px]:items-center">
+        <div class="bg-gradient-to-r from-[#102346] via-[#2E5C91] to-[#982041] flex flex-col my-[2rem] mx-[1rem] md:flex-row justify-between items-start @min-[500px]:items-center">
 
-            <div class="w-[50%]">
+            <div class=" w-[50%] py-[2rem] px-[1rem] flex justify-center">
 
                     <form action="" autocomplete="off" method="post" class="flex flex-col gap-[1rem] text-white text-[1.25rem]">
                     
                     <div>
-                        <label for="conta">Digite sua conta: </label>
-                        <input type="text" name="conta" id="conta" required class="block text-black rounded-[0.25rem]">
+                        <label for="conta">Digite seu CPF/CNPJ: </label>
+                        <input type="text" name="cpfCnpj" id="cpfCnpj" required class="block text-black rounded-[0.25rem]">
                     </div>
 
                     <div>
@@ -62,9 +62,7 @@
 
             </div>
 
-
-
-            <div class="w-[50%]">
+            <div class="h-[25%] min-[793px]:w-[50%] ">
                 <img src="./images/bank-backgroundLogin.jpg" alt="" class="w-full h-full md:object-cover">
             </div>
 
@@ -76,16 +74,11 @@
 
     <footer class="bg-[#982041] text-white">
 
-        <div class="flex flex-col gap-[0.5rem]">
+        <div class="flex flex-col gap-[0.75rem] mx-[1rem]">
 
-            <div class="">
-                <img src="./images/Veritas Capital (1).png" alt="LOGO">
-                <p>&copy; 2025 Veritas Capital, Bank</p>
-            </div>
+                <div class="flex flex-col gap-[0.5rem]">
 
-                <div class="">
-
-                    <h3>Informações</h3>
+                    <h3 class="text-[1.25rem]">Informações:</h3>
 
                     <ul>
                         <li><p>Termos</p></li>
@@ -94,29 +87,32 @@
 
                 </div>
 
-                <div>
+                <div class="flex flex-col gap-[0.5rem]">
 
-                    <h3>Contate-nos</h3>
+                    <h3 class="text-[1.25rem]">Contate-nos:</h3>
                     <ul>
                         <li>Telefone: 54234-2123</li>
                         <li>Número de whatsapp: 73135-0231</li>
                         <li>Email: veritasCapital@gmail.com</li>
                     </ul>
 
-                    <div class="flex flex-row justify-between">
-                        <img src="./images/facebookIcon.svg" alt="Facebook logo">
-                        <img src="./images/instagramIcon.svg" alt="Instagram logo">
-                        <img src="./images/linkedinIcon.svg" alt="linkedin logo">
-                        <img src="./images/githubIcon.svg" alt="github logo">
-                    </div>
-
                 </div>
 
-            <div>
+                <div class="flex flex-row justify-between w-[2.5rem] gap-[2rem]">
+                    <img src="./images/facebookIcon.svg" alt="Facebook logo">
+                    <img src="./images/instagramIcon.svg" alt="Instagram logo">
+                    <img src="./images/linkedinIcon.svg" alt="linkedin logo">
+                    <img src="./images/githubIcon.svg" alt="github logo">
+                </div>
 
-            </div>
+
 
         </div>
+
+        <div class="bg-black p-[0.5rem] mt-[1rem] flex flex-col flex-wrap gap-[1rem] py-[2rem]">
+            <img class="self-start" src="./images/Veritas Capital.svg" alt="LOGO">
+            <p>&copy; 2025 Veritas Capital, Bank</p>
+        </div>        
 
     </footer>
 
