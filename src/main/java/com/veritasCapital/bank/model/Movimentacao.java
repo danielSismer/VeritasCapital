@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Entity
@@ -34,6 +35,9 @@ public class Movimentacao {
         this.movimentacaoType = movimentacaoType;
         this.valor = valor;
         this.data_horario = data_horario;
+    }
+
+    public Movimentacao() {
     }
 
     public Integer getId() {
