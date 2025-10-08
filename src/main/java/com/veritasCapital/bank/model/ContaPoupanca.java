@@ -1,13 +1,16 @@
 package com.veritasCapital.bank.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class ContaPoupanca extends Conta {
 
     @Id
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Conta conta;
     private double taxaRendimento;
 
     public ContaPoupanca() {
@@ -21,7 +24,7 @@ public class ContaPoupanca extends Conta {
     }
 
     public ContaPoupanca(Integer id, double taxaRendimento) {
-        this.id = id;
+        super(id);
         this.taxaRendimento = taxaRendimento;
     }
 
@@ -29,12 +32,12 @@ public class ContaPoupanca extends Conta {
         this.taxaRendimento = taxaRendimento;
     }
 
-    public Integer getId() {
-        return id;
+    public Conta getConta() {
+        return conta;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setConta(Conta conta) {
+        this.conta = conta;
     }
 
     public double getTaxaRendimento() {
@@ -49,6 +52,5 @@ public class ContaPoupanca extends Conta {
     public String toString() {
         return super.toString() + "\n Taxa de Rendimento: " + taxaRendimento;
     }
-
 
 }

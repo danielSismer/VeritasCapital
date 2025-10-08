@@ -2,12 +2,15 @@ package com.veritasCapital.bank.model;
 
 import jakarta.persistence.Embeddable;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Embeddable
 public class Titular {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     String nome;
     String cpf;
@@ -33,7 +36,8 @@ public class Titular {
     }
 
     public Titular() {
-
+        this.nome = null;
+        this.cpf = null;
     }
 
     public Integer getId() {

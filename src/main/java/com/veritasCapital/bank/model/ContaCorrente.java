@@ -1,13 +1,16 @@
 package com.veritasCapital.bank.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class ContaCorrente extends Conta{
 
     @Id
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Conta conta;
     private double movimentacaoDiaria;
 
     public ContaCorrente(){ super(); this.movimentacaoDiaria = 0; }
@@ -15,8 +18,8 @@ public class ContaCorrente extends Conta{
     public ContaCorrente(Titular titular, String numero, double saldo, double movimentacaoDiaria){ super(titular, numero, saldo); this.movimentacaoDiaria = movimentacaoDiaria; }
 
     public ContaCorrente(Integer id, double movimentacaoDiaria) {
+        super(id);
         this.movimentacaoDiaria = movimentacaoDiaria;
-        this.id = id;
     }
 
     public ContaCorrente(double movimentacaoDiaria) {
@@ -36,11 +39,11 @@ public class ContaCorrente extends Conta{
         this.movimentacaoDiaria = movimentacaoDiaria;
     }
 
-    public Integer getId() {
-        return id;
+    public Conta getConta() {
+        return conta;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setConta(Conta conta) {
+        this.conta = conta;
     }
 }

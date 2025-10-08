@@ -1,6 +1,8 @@
 package com.veritasCapital.bank.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.time.LocalDateTime;
@@ -9,6 +11,7 @@ import java.time.LocalDateTime;
 public class Movimentacao {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     Conta conta_remetente;
     Conta conta_destinario;
@@ -79,5 +82,15 @@ public class Movimentacao {
 
     public void setData_horario(LocalDateTime data_horario) {
         this.data_horario = data_horario;
+    }
+
+    public String toString(){
+        return "=========================| Movimentação |=========================\n" +
+                "ID: " + this.id +
+                "\nConta Remetente: " + this.conta_remetente +
+                "\nConta Destinatário: " + this.conta_destinario +
+                "\nTipo de movimentação: " + this.conta_remetente +
+                "\nValor: " + this.conta_destinario +
+                "\nData e horário: " + this.data_horario + "\n";
     }
 }

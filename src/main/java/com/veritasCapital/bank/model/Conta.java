@@ -1,6 +1,8 @@
 package com.veritasCapital.bank.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
@@ -11,6 +13,7 @@ public class Conta {
     //conta.
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     protected Titular titular;
     protected String numero;
@@ -21,6 +24,10 @@ public class Conta {
         this.titular = null;
         this.numero = null;
         this.saldo = 0;
+    }
+
+    public Conta(Integer id) {
+        this.id = id;
     }
 
     public Conta(Titular titular, String numero, double saldo) {
@@ -44,6 +51,11 @@ public class Conta {
         this.contaType = contaType;
     }
 
+    public Conta(Integer id, String contaType) {
+        this.id = id;
+        this.contaType = contaType;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -51,8 +63,6 @@ public class Conta {
     public void setId(Integer id) {
         this.id = id;
     }
-
-
 
     public Titular getTitular() {
         return titular;
