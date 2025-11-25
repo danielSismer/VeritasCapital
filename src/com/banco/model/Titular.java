@@ -4,26 +4,14 @@ public class Titular {
 
     Integer id;
     String nome;
-    String cpf;
+    String nacionalidade;
+    String registroCivil;
 
-    public Titular(String nome, String cpf){
-        this.nome = nome;
-        this.cpf = cpf;
-    }
-
-    public Titular(Integer id, String nome, String cpf){
+    public Titular(Integer id, String nome, String nacionalidade, String registroCivil) {
         this.id = id;
         this.nome = nome;
-        this.cpf = cpf;
-    }
-
-    public Titular(Integer id, String nome){
-        this.id = id;
-        this.nome = nome;
-    }
-
-    public Titular(Integer id){
-        this.id = id;
+        this.nacionalidade = nacionalidade;
+        this.registroCivil = registroCivil;
     }
 
     public Integer getId() {
@@ -42,18 +30,20 @@ public class Titular {
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getNacionalidade() {
+        return nacionalidade;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setNacionalidade(String nacionalidade) {
+        this.nacionalidade = nacionalidade;
     }
 
-    public String toString(){
-        return "=========================| Titular |=========================\n" +
-                "ID: " + this.id +
-                "\nTitular: " + this.nome +
-                "\nNúmero: " + this.cpf + "\n";
+    public String getRegistroCivil() {
+        return registroCivil;
     }
+
+    public void setRegistroCivil(String registroCivil) {
+        this.registroCivil = registroCivil;
+    }
+
 }

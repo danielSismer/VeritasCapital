@@ -11,9 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TitularDao {
-
-    UserInterface uiView =new UserInterface();
+public class TitularDao { /*
 
     public void insert(String nome, String cpf) throws SQLException{
         String sql = """
@@ -67,4 +65,6 @@ public class TitularDao {
 
         return titulares;
     }
+
+    */
 }

@@ -14,8 +14,8 @@ import java.util.List;
 
 public class ContaDao {
 
-    UserInterface uiView =new UserInterface();
 
+    /*
     public void insert(Titular titular, String numero, double saldo, String tipo) throws SQLException{
         String sql = """
                 INSERT INTO conta (titular, numero, saldo, tipo)
@@ -75,4 +75,6 @@ public class ContaDao {
 
     public void updateSaldo() throws SQLException{
     }
+
+     */
 }
