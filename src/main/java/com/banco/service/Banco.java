@@ -15,6 +15,7 @@ import java.util.Objects;
 
 public class Banco {
 
+    /*
     List<Titular> titulares;
     List<Conta> contas;
     List<Movimentacao> movimentacoes;
@@ -354,4 +355,7 @@ public class Banco {
         }
 
     }
+
+
+     */
 }
